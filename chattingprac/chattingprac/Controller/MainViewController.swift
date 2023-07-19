@@ -209,7 +209,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let deleteAction = UIContextualAction(style: .normal, title: "delete") { (_, _, completionHandler) in
+        let deleteAction = UIContextualAction(style: .destructive, title: "delete") { (_, _, completionHandler) in
             
             let realm = try! Realm()
 //            let Message_Boards = realm.objects(MessageBoard.self)
@@ -227,8 +227,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
                 
                 self.message_array.remove(at: indexPath.row)
             }
-            
-            tableView.reloadData()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+//            tableView.reloadRows(at: IndexPath.row, with: .automatic)
             completionHandler(true) // 告訴系統滑動操作已完成
         }
         deleteAction.backgroundColor = UIColor.red
