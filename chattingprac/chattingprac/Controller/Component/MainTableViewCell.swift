@@ -9,7 +9,7 @@ import UIKit
 class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var label: UILabel?
     @IBOutlet weak var label2: UILabel?
-    
+
     static let identified = "MainTableView"
     override func awakeFromNib() {
         super.awakeFromNib()
